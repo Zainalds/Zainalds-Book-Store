@@ -26,6 +26,7 @@ namespace Zainalds_Book_Store
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddControllersWithViews();
             services.AddRazorPages();
         }
 
@@ -52,6 +53,7 @@ namespace Zainalds_Book_Store
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapRazorPages();
             });
         }
